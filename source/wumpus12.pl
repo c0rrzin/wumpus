@@ -982,15 +982,14 @@ is_nb_visited :-
 
 is_nb_visited.
 
+% Mudando o Algoritmo de coragem. Ele não depende mais do tempo
 agent_courage :-	% we choose arbitrory thanks to a lot of tries.
 			% we could compute nb_visited / max_room_to_visit
-	time(T),		% time
 	nb_visited(N),		% number of visted room
 	land_extent(LE),	% size of the land
 	E is LE * LE,  		% maximum of room to visit
-	NPLUSE is E * 2,
-% 	NPLUSE is E * 2 + N,
-	inf_equal(T,NPLUSE).
+	NTIMES3 is N * 3,
+	inf_equal(NTIMES3, E).
 
 % A location is estimated thanks to ... good, medium, risky, deadly.
 
